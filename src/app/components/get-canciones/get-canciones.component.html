@@ -1,0 +1,34 @@
+<ion-grid>
+  <ion-row>
+    <ion-col>
+      <ion-card *ngFor="let cancion of canciones">
+        <ion-card-header>
+          
+          <ion-icon (click)="opciones(cancion)" name="ellipsis-vertical"></ion-icon>
+          
+          <ion-card-subtitle (click)="mostrarLetra(cancion)">
+            <b>Ultima Fecha: {{cancion.ultimaFecha | date:'fullDate'}}</b>
+          </ion-card-subtitle>
+          
+          <ion-card-title (click)="mostrarLetra(cancion)">
+            {{cancion.nombre | titlecase}}
+          </ion-card-title>
+        
+        </ion-card-header>
+        <ion-card-content>
+          
+          <img (click)="mostrarLetra(cancion)" src="/assets/imgDefault.jpg" />
+          
+          <ion-chip color="primary" mode="ios" outline="true">
+            <ion-label>{{cancion.artista}}</ion-label>
+          </ion-chip>
+
+          <ion-chip color="primary" mode="ios" outline="true">
+            <ion-label>{{cancion.tipo}}</ion-label>
+          </ion-chip>
+
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+</ion-grid>

@@ -1,0 +1,58 @@
+<ion-header>
+  <ion-toolbar style="border:none">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <form [formGroup]="formGroup">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-subtitle>Cancion</ion-card-subtitle>
+        <ion-card-title>Nueva Cancion</ion-card-title>
+      </ion-card-header>
+    
+      <ion-card-content>
+  
+        <ion-item>
+          <ion-label position="floating">Nombre: </ion-label>
+          <ion-input formControlName="nombre" required></ion-input>
+        </ion-item>
+  
+        <ion-item>
+          <ion-label position="floating">Artista: </ion-label>
+          <ion-input formControlName="artista" required></ion-input>
+        </ion-item>
+  
+        <ion-item>
+          <ion-label position="floating">Pegar Letra: </ion-label>
+          <ion-textarea 
+                        formControlName="letra" 
+                        auto-grow="true" 
+                        rows="10" cols="25"
+                        required></ion-textarea>
+        </ion-item>
+  
+        <ion-item>
+          <ion-label position="floating">Tipo de Cancion</ion-label>
+          <ion-select formControlName="tipo" interface="action-sheet" required>
+            <ion-select-option *ngFor="let tipo of tipoCancion" [value]="tipo">{{tipo}}</ion-select-option>
+          </ion-select>
+        </ion-item>
+  
+        <section>
+          <ion-button 
+                      expand="block" 
+                      style="margin-top:30px" 
+                      [disabled]="formGroup.invalid" 
+                      (click)="saveCancion()">Guardar</ion-button>
+        </section>
+  
+      </ion-card-content>
+    </ion-card>
+  </form>
+
+</ion-content>

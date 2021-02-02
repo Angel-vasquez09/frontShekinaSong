@@ -1,0 +1,57 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Actualizar</ion-title>
+    <ion-icon (click)="dismiss()" slot="end" name="close"></ion-icon>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <h1 class="h1">Shekina</h1>
+  <ion-grid fixed class="margin-top">
+    <ion-row>
+      <ion-col>
+        <form [formGroup]="formGroup" (ngSubmit)="actualizar()">
+          <ion-item>
+            <ion-label position="floating">Nombre: </ion-label>
+            <ion-input formControlName="nombre" required></ion-input>
+          </ion-item>
+    
+          <ion-item>
+            <ion-label position="floating">Artista: </ion-label>
+            <ion-input formControlName="artista" required></ion-input>
+          </ion-item>
+    
+          <ion-item>
+            <ion-label position="floating">Pegar Letra: </ion-label>
+            <ion-textarea rows="4" cols="20"
+                          formControlName="letra" 
+                          auto-grow="true" 
+                          required></ion-textarea>
+          </ion-item>
+    
+          <ion-item>
+            <ion-label position="floating">Tipo de Cancion</ion-label>
+            <ion-select formControlName="tipo"  
+                        placeholder="{{ cancion.tipo }}"
+                        interface="action-sheet" 
+                        >
+              <ion-select-option 
+              *ngFor="let tipo of tipoCancion" 
+              
+              [value]="tipo">{{tipo}}</ion-select-option>
+            </ion-select>
+          </ion-item>
+
+          <ion-item lines="none" class="margin-top">
+            <ion-button class="buton"
+                        type="submit" 
+                        color="tertiary" 
+                        shape="round">
+              Actualizar
+            </ion-button>
+          </ion-item>
+  
+        </form>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

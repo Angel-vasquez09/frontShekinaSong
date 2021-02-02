@@ -1,0 +1,73 @@
+<ion-header>
+  <ion-toolbar>
+    
+
+    <ion-icon (click)="dismiss()" slot="end" name="close"></ion-icon>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <!-- BUSCAR CACNIONES PARA AGREGAR -->
+  <ion-searchbar 
+    showCancelButton="focus" 
+    animated
+    placeholder="nombre-artista-tipo"
+    (ionChange)="buscarC($event)"
+></ion-searchbar>
+
+  <ion-item>
+    <ion-label>Fecha</ion-label>
+    <ion-datetime 
+                    displayFormat="MMM DD, YYYY" 
+                    placeholder="Select Date"
+                    #fecha
+                    ></ion-datetime>
+  </ion-item>
+
+  <ion-grid fixed>
+    <ion-row *ngFor="let cancion of canciones">
+      <ion-col>
+        <ion-item>
+          <ion-avatar slot="start">
+            <img src="/assets/imgDefault.jpg" />
+          </ion-avatar>
+          <ion-label>
+            <p>
+              Ultima Fecha: {{ cancion.ultimaFecha | date:'mediumDate' }}
+            </p>
+            {{ cancion.artista | titlecase }} 
+            <p>{{ cancion.nombre | titlecase }}</p>
+          </ion-label>
+          <ion-checkbox 
+                        (click)="guardarC($event,cancion)" 
+                        slot="end">
+          </ion-checkbox>
+
+        </ion-item>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <!-- INFINITE SCROLL -->
+  <ion-infinite-scroll 
+                        threshold="100px"  
+                        (ionInfinite)="loadData($event)">
+    <ion-infinite-scroll-content 
+                                  loadingSpinner="bubbles" 
+                                  loadingText="Loading more data...">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+
+</ion-content>
+<ion-footer>
+  <ion-toolbar>
+    <ion-button 
+                (click)="guardarList(fecha)" 
+                
+                expand="block" 
+                fill="clear" 
+                shape="round">
+      Guardar Lista
+    </ion-button>
+  </ion-toolbar>
+</ion-footer>

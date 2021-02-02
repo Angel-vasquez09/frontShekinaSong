@@ -1,0 +1,7 @@
+{
+  "name": "frontShekinaSongs",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}
