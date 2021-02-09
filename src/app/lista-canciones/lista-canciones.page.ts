@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ModalController, ToastController } from '@ionic/angular';
+import { AlertController, ModalController, ToastController } from '@ionic/angular';
 import { ListCancionsComponent } from '../components/list-cancions/list-cancions.component';
 import { CrearListCComponent } from '../components/crear-list-c/crear-list-c.component';
 import { ListCancionesService } from '../services/list-canciones.service';
@@ -16,6 +16,7 @@ export class ListaCancionesPage implements OnInit {
   constructor(
     public toastController: ToastController,
     public modalController: ModalController,
+    public alertController:AlertController,
     private listC: ListCancionesService) { }
 
   ngOnInit() {
@@ -26,6 +27,9 @@ export class ListaCancionesPage implements OnInit {
     this.listC.getListaCaciones().subscribe(resp => {
       this.cancionesFecha = [];
       this.cancionesFecha.push(...resp['cacniones']);
+    },
+    err =>{
+      this.presentError(err.message);
     })
   }
 
@@ -69,6 +73,16 @@ export class ListaCancionesPage implements OnInit {
       duration: 2000
     });
     toast.present();
+  }
+
+  async presentError(mensaje:string) {
+    const alert = await this.alertController.create({
+      header: 'Error',
+      message: mensaje,
+      buttons: ['OK']
+    });
+
+    await alert.present();
   }
 
 }

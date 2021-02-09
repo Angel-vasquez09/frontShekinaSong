@@ -103,6 +103,9 @@ export class CrearListCComponent implements OnInit {
         this.dismiss();
         this.toast('Lista guardada con exito !!');
       }
+    },
+    err=>{
+      this.presentError(err.message);
     });
     
   }
@@ -154,6 +157,16 @@ export class CrearListCComponent implements OnInit {
     this.modalController.dismiss({
       'dismissed': true
     });
+  }
+
+  async presentError(mensaje:string) {
+    const alert = await this.alertController.create({
+      header: 'Error',
+      message: mensaje,
+      buttons: ['OK']
+    });
+
+    await alert.present();
   }
 
 }
