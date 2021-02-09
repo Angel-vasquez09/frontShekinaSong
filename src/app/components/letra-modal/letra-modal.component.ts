@@ -12,6 +12,8 @@ export class LetraModalComponent implements OnInit {
   @Input() letra: string;
   @Input() nombre: string;
   @Input() id: string;
+  @Input() artista:string;
+  @Input() tipo:string;
   
 
   // Desactivamos el slide

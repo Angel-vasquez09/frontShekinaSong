@@ -10,7 +10,8 @@ import { Observable } from 'rxjs';
 })
 export class ListCancionesService {
 
-  private urlBackend = "http://localhost:3000/listC";
+  private urlBackend = "https://shekinasongs.herokuapp.com/listC";
+  //private urlBackend = "http://localhost:3000/listC";
   
   constructor(private httpClient: HttpClient) { }
 

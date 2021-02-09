@@ -10,8 +10,8 @@ import { Observable } from 'rxjs';
 })
 export class CancionServiceService {
 
-  //private urlBackend = "https://shekinasongs.herokuapp.com/canciones";
-  private urlBackend = "http://localhost:3000/canciones";
+  private urlBackend = "https://shekinasongs.herokuapp.com/canciones";
+  //private urlBackend = "http://localhost:3000/canciones";
 
   public Canciones:Cancion[];
 

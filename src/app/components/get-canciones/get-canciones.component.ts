@@ -109,7 +109,9 @@ export class GetCancionesComponent implements OnInit {
       componentProps: {
         'letra' : cancion.letra,
         'nombre': cancion.nombre,
-        'id'    : cancion._id
+        'id'    : cancion._id,
+        'artista': cancion.artista,
+        'tipo':cancion.tipo
       }
     });
     return await modal.present();

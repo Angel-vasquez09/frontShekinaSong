@@ -1,7 +1,7 @@
 <ion-app>
   <ion-header translucent>
     <ion-toolbar>
-      <ion-title>Detalle</ion-title>
+      <ion-title>{{nombre}}</ion-title>
       <ion-buttons slot="end">
         <ion-button (click)="dismiss(slide)">Close</ion-button>
       </ion-buttons>
@@ -12,17 +12,12 @@
     <ion-grid fixed>
       <ion-row>
         <ion-col>
-          <ion-title>
-            <b>
-              {{nombre}}
-            </b>
-          </ion-title>
       
           <ion-chip color="primary" mode="ios" outline="true">
-            <ion-label>Artista</ion-label>
+            <ion-label>{{artista}}</ion-label>
           </ion-chip>
           <ion-chip color="primary" mode="ios" outline="true">
-            <ion-label>tipo</ion-label>
+            <ion-label>{{tipo}}</ion-label>
           </ion-chip>
       
           <ion-textarea 
@@ -30,7 +25,7 @@
                         auto-grow=true 
                         readonly="true" 
                         wrap="soft">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed adipisci libero quaerat id laboriosam nihil eos quisquam facere fuga odit doloribus illum, voluptatibus impedit vitae quo non? Dolorem, molestiae sunt. Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi voluptatum reiciendis fuga tempora magni illum doloremque nam veritatis dolor sit corporis dicta, perspiciatis blanditiis ratione hic cupiditate odio cumque fugit. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officiis praesentium ea molestias esse, voluptates accusamus possimus, non nisi quis nemo vitae repellat dolore, a ad reiciendis doloribus quod hic natus! ... 
+                        {{letra}}
           </ion-textarea>
           
         </ion-col>
