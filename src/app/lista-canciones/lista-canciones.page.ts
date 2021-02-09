@@ -33,12 +33,13 @@ export class ListaCancionesPage implements OnInit {
     })
   }
 
-  async verList(lista) {
+  async verList(lista,fecha) {
     const modal = await this.modalController.create({
       component: ListCancionsComponent ,
       cssClass: 'my-custom-class',
       componentProps: {
-        'canciones': lista
+        'canciones': lista,
+        'fecha': fecha
       }
 
     });

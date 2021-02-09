@@ -14,7 +14,7 @@
 
 <ion-content>
 
-  <h1 class="h1" *ngIf="cancionesFecha.length === 0">[Crea tu lista de canciones]</h1>
+  <h1 class="h1" *ngIf="cancionesFecha.length === 0">No existen listados</h1>
   <ion-fab vertical="bottom" horizontal="end" slot="fixed">
     <ion-fab-button (click)="crearList()">
       <ion-icon name="add"></ion-icon>
@@ -29,7 +29,7 @@
   
     <ion-item >
       <ion-label>{{ fecha.fechaCanto | date:'fullDate' }}</ion-label>
-      <ion-icon (click)="verList(fecha.canciones)" slot="end" name="chevron-forward-outline"></ion-icon>
+      <ion-icon (click)="verList(fecha.canciones,fecha.fechaCanto)" slot="end" name="chevron-forward-outline"></ion-icon>
     </ion-item>
   
   </ion-item-sliding>

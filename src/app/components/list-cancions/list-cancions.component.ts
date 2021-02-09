@@ -9,6 +9,7 @@ import { ModalController } from '@ionic/angular';
 export class ListCancionsComponent implements OnInit {
   
   @Input() canciones: any[] = [];
+  @Input() fecha:string;
 
   constructor(
     
