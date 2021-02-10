@@ -81,7 +81,7 @@ export class CrearListCComponent implements OnInit {
         tipo       : cancion.tipo,
         letra      : cancion.letra,
         id         : cancion._id,
-        ultimaFecha: new Date(),
+        ultimaFecha: fecha.value,
       }
       this.cancionS.updateC(cancionUpdate);
     });
